@@ -12,6 +12,11 @@ from django.contrib.auth.decorators import login_required
 
 def home_view(request):
     return render(request, 'home.html')
+
+def learning_view(request):
+    return render(request, 'learning.html')
+
+
 def about_view(request):
     return render(request, 'about.html')
 def contact_view(request):

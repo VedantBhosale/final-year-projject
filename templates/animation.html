@@ -8,14 +8,22 @@
 	<br>
 	<form action="" method="post" align="left">
 		{% csrf_token %}
-		<input type="text" name="sen" class="mytext" id="speechToText" placeholder="">
-		<button type="button" name="button" class="mic" onclick="record()"><img src="{% static 'mic3.png' %}"
+<br>
+	
+		<input type="text" name="sen" class="mytext" id="speechToText" placeholder="" style= " margin-left: 200px;">
+		
+		
+		<button type="button" name="button" class="mic" onclick="record()" style= " margin-left: 30px;"><img src="{% static 'mic3.png' %}"
 				height="32px" width="38px" /></button>
-		&nbsp&nbsp&nbsp&nbsp
-		<input type="submit" name="submit" class="submit">
+				<br>
+				<br>
+				<bR>
+				<br>
+		<input type="submit" style= " margin-left: 290px;" name="submit" class="submit">
 
 	</form>
 	<br>
+
 	<table cellspacing="20px">
 		<tr>
 			<td class="td">The text that you entered is:</td>
@@ -24,9 +32,9 @@
 		<tr>
 			<td class="td">Key words in sentence:</td>
 			<td class="td">
-				<ul class="td" id="list" align="center">
+				<ul id="list" align="center">
 					{% for word in words %}
-					<li id="{{ i }}" style="margin-right: 8px">{{ word }}</li>
+					<li id="{{ i }}" type="hidden" >{{ word }}</li>
 					{% endfor %}
 				</ul>
 			</td>
@@ -73,7 +81,7 @@
 		var videoCount = videoSource.length;
 
 		function videoPlay(videoNum) {
-			document.getElementById("list").getElementsByTagName("li")[videoNum].style.color = "#09edc7";
+			document.getElementById("list").getElementsByTagName("li")[videoNum]
 			document.getElementById("list").getElementsByTagName("li")[videoNum].style.fontSize = "xx-large";
 			document.getElementById("videoPlayer").setAttribute("src", videoSource[videoNum]);
 			document.getElementById("videoPlayer").load();
@@ -81,13 +89,13 @@
 
 		}
 		document.getElementById('videoPlayer').addEventListener('ended', myHandler, false);
-		document.getElementById("list").getElementsByTagName("li")[0].style.color = "#09edc7";
+		document.getElementById("list").getElementsByTagName("li")[0]
 		document.getElementById("list").getElementsByTagName("li")[0].style.fontSize = "xx-large";
 
 		videoPlay(0); // play the video
 
 		function myHandler() {
-			document.getElementById("list").getElementsByTagName("li")[i].style.color = "#feda6a";
+			document.getElementById("list").getElementsByTagName("li")[i].style.color = "#404040";
 			document.getElementById("list").getElementsByTagName("li")[i].style.fontSize = "20px";
 			i++;
 			if (i == videoCount) {
